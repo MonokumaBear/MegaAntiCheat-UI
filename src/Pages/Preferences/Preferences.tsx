@@ -57,8 +57,9 @@ const Preferences = () => {
   );
   console.log(
     friendsApiUsageOptions.find((o) => {
-    return o.value === settings.internal?.friendsApiUsage;
-    })?.label);
+      return o.value === settings.internal?.friendsApiUsage;
+    })?.label,
+  );
 
   React.useEffect(() => {
     const fetchSettings = async () => {
