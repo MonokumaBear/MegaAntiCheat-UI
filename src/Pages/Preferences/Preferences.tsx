@@ -50,13 +50,15 @@ const Preferences = () => {
   const [friendsAPISelectedOption, setFriendsAPISelectedOption] = useState(
     friendsApiUsageOptions.find((o) => {
       return o.value === settings.internal?.friendsApiUsage;
-    }).value);
+    }).value,
+  );
 
   const updateSelectElement = () => {
     setFriendsAPISelectedOption(
       friendsApiUsageOptions.find((o) => {
         return o.value === settings.internal?.friendsApiUsage;
-      }).value);
+      }).value,
+    );
   };
 
   React.useEffect(() => {
