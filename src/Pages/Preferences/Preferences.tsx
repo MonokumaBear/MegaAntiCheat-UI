@@ -54,8 +54,8 @@ const Preferences = () => {
   );
 
   const updateSelectElements = () => {
-    setSelectPlaceholder(friendsApiUsageOptions.find((o) => {
-      
+    setSelectPlaceholder(
+      friendsApiUsageOptions.find((o) => {
         return o.value === settings.internal?.friendsApiUsage;
       })?.label ?? t('COMPONENT_SELECT'),
     );
