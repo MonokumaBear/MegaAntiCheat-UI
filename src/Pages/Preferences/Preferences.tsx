@@ -47,6 +47,7 @@ const Preferences = () => {
     },
   ];
 
+  console.log("DEBUGGING FRIENDS API DROPDOWN");
   console.log(settings.internal?.friendsApiUsage);
   console.log(friendsApiUsageOptions);
   console.log(friendsApiUsageOptions.find((o) => {
