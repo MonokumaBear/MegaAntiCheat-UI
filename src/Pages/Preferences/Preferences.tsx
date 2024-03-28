@@ -47,17 +47,17 @@ const Preferences = () => {
     },
   ];
 
-  const [selectPlaceholder, setSelectPlaceholder] = useState(
+  const [friendsAPISelectValue, setFriendsAPISelectValue] = useState(
     friendsApiUsageOptions.find((o) => {
       return o.value === settings.internal?.friendsApiUsage;
-    })?.label ?? t('COMPONENT_SELECT'),
-  );
+    })?.value;
+  });
 
-  const updateSelectElements = () => {
-    setSelectPlaceholder(
+  const updateSelectElement = () => {
+    setFriendsAPISelectValue(
       friendsApiUsageOptions.find((o) => {
         return o.value === settings.internal?.friendsApiUsage;
-      })?.label ?? t('COMPONENT_SELECT'),
+      })?.value,
     );
   };
 
@@ -120,7 +120,7 @@ const Preferences = () => {
                 onChange={(e) => {
                   setLanguage(e.toString());
                   handleSettingChange('language', e);
-                  updateSelectElements();
+                  updateSelectElement();
                 }}
               />
             </Flex>
@@ -299,9 +299,10 @@ const Preferences = () => {
               </div>
               <Select
                 className="preference-select"
-                placeholder={selectPlaceholder}
                 options={friendsApiUsageOptions}
+                value={friendsAPISelectValue}
                 onChange={(e) => {
+                  setFriendsAPISelectValue(e.target.value);
                   handleSettingChange('friendsApiUsage', e, 'internal');
                 }}
               />
