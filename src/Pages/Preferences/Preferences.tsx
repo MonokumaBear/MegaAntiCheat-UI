@@ -34,15 +34,15 @@ const Preferences = () => {
 
   const friendsApiUsageOptions: SelectOption[] = [
     {
-      label: 'PREF_FRIEND_API_USAGE_ALL',
+      label: t('PREF_FRIEND_API_USAGE_ALL'),
       value: 'All',
     },
     {
-      label: 'PREF_FRIEND_API_USAGE_CHEATERS_ONLY',
+      label: t('PREF_FRIEND_API_USAGE_CHEATERS_ONLY'),
       value: 'CheatersOnly',
     },
     {
-      label: 'PREF_FRIEND_API_USAGE_NONE',
+      label: t('PREF_FRIEND_API_USAGE_NONE'),
       value: 'None',
     },
   ];
@@ -287,9 +287,9 @@ const Preferences = () => {
               <Select
                 className="preference-select"
                 placeholder={
-                  t(friendsApiUsageOptions.find((o) => {
+                  friendsApiUsageOptions.find((o) => {
                     return o.value === settings.internal?.friendsApiUsage;
-                  })?.label) ?? t('COMPONENT_SELECT')
+                  })?.label ?? t('COMPONENT_SELECT')
                 }
                 options={friendsApiUsageOptions}
                 onChange={(e) => {
