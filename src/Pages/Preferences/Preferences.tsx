@@ -53,9 +53,10 @@ const Preferences = () => {
   console.log(
     friendsApiUsageOptions.find((o) => {
       return o.value === settings.internal?.friendsApiUsage;
-    })
+    }),
   );
-  console.log(friendsApiUsageOptions.find((o) => {
+  console.log(
+    friendsApiUsageOptions.find((o) => {
     return o.value === settings.internal?.friendsApiUsage;
     })?.label);
 
