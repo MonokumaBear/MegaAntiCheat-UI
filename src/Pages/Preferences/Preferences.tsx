@@ -47,6 +47,19 @@ const Preferences = () => {
     },
   ];
   
+  const [selectPlaceholder, setSelectPlaceholder] = useState(
+    friendsApiUsageOptions.find((o) => {
+                    return o.value === settings.internal?.friendsApiUsage;
+                  })?.label ?? t('COMPONENT_SELECT')
+  );
+  
+  const updateSelectElements = () => {
+    setSelectPlaceholder(friendsApiUsageOptions.find((o) => {
+                    return o.value === settings.internal?.friendsApiUsage;
+                  })?.label ?? t('COMPONENT_SELECT')
+    );
+  };
+  
   React.useEffect(() => {
     const fetchSettings = async () => {
       const settings = await getAllSettings();
@@ -106,6 +119,7 @@ const Preferences = () => {
                 onChange={(e) => {
                   setLanguage(e.toString());
                   handleSettingChange('language', e);
+                  updateSelectElements();
                 }}
               />
             </Flex>
@@ -284,11 +298,7 @@ const Preferences = () => {
               </div>
               <Select
                 className="preference-select"
-                placeholder={
-                  friendsApiUsageOptions.find((o) => {
-                    return o.value === settings.internal?.friendsApiUsage;
-                  })?.label ?? t('COMPONENT_SELECT')
-                }
+                placeholder={selectPlaceholder}
                 options={friendsApiUsageOptions}
                 onChange={(e) => {
                   handleSettingChange('friendsApiUsage', e, 'internal');
