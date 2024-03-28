@@ -302,7 +302,7 @@ const Preferences = () => {
                 options={friendsApiUsageOptions}
                 value={friendsAPISelectedOption}
                 onChange={(e) => {
-                  setFriendsAPISelectedOption(e);
+                  setFriendsAPISelectedOption(String(e));
                   handleSettingChange('friendsApiUsage', e, 'internal');
                 }}
               />
