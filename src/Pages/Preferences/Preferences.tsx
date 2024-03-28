@@ -48,6 +48,13 @@ const Preferences = () => {
   ];
 
   console.log(settings.internal?.friendsApiUsage);
+  console.log(friendsApiUsageOptions);
+  console.log(friendsApiUsageOptions.find((o) => {
+    return o.value === settings.internal?.friendsApiUsage;
+  }));
+  console.log(friendsApiUsageOptions.find((o) => {
+    return o.value === settings.internal?.friendsApiUsage;
+  })?.label);
 
   React.useEffect(() => {
     const fetchSettings = async () => {
