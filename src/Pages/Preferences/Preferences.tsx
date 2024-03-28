@@ -47,17 +47,17 @@ const Preferences = () => {
     },
   ];
 
-  const [friendsAPISelectValue, setFriendsAPISelectValue] = useState(
+  const [friendsAPISelectedOption, setFriendsAPISelectedOption] = useState(
     friendsApiUsageOptions.find((o) => {
       return o.value === settings.internal?.friendsApiUsage;
-    })?.value,
+    }),
   );
 
   const updateSelectElement = () => {
-    setFriendsAPISelectValue(
+    setFriendsAPISelectedOption(
       friendsApiUsageOptions.find((o) => {
         return o.value === settings.internal?.friendsApiUsage;
-      })?.value,
+      }),
     );
   };
 
@@ -300,9 +300,9 @@ const Preferences = () => {
               <Select
                 className="preference-select"
                 options={friendsApiUsageOptions}
-                value={friendsAPISelectValue}
+                value={friendsAPISelectedOption}
                 onChange={(e) => {
-                  setFriendsAPISelectValue(e.target.value);
+                  setFriendsAPISelectedOption(e);
                   handleSettingChange('friendsApiUsage', e, 'internal');
                 }}
               />
