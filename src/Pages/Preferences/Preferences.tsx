@@ -50,13 +50,14 @@ const Preferences = () => {
   const [selectPlaceholder, setSelectPlaceholder] = useState(
     friendsApiUsageOptions.find((o) => {
       return o.value === settings.internal?.friendsApiUsage;
-    })?.label ?? t('COMPONENT_SELECT')
+    })?.label ?? t('COMPONENT_SELECT'),
   );
 
   const updateSelectElements = () => {
     setSelectPlaceholder(friendsApiUsageOptions.find((o) => {
-      return o.value === settings.internal?.friendsApiUsage;
-    })?.label ?? t('COMPONENT_SELECT')
+      
+        return o.value === settings.internal?.friendsApiUsage;
+      })?.label ?? t('COMPONENT_SELECT'),
     );
   };
 
