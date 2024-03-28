@@ -47,15 +47,17 @@ const Preferences = () => {
     },
   ];
 
-  console.log("DEBUGGING FRIENDS API DROPDOWN");
+  console.log('DEBUGGING FRIENDS API DROPDOWN');
   console.log(settings.internal?.friendsApiUsage);
   console.log(friendsApiUsageOptions);
+  console.log(
+    friendsApiUsageOptions.find((o) => {
+      return o.value === settings.internal?.friendsApiUsage;
+    })
+  );
   console.log(friendsApiUsageOptions.find((o) => {
     return o.value === settings.internal?.friendsApiUsage;
-  }));
-  console.log(friendsApiUsageOptions.find((o) => {
-    return o.value === settings.internal?.friendsApiUsage;
-  })?.label);
+    })?.label);
 
   React.useEffect(() => {
     const fetchSettings = async () => {
